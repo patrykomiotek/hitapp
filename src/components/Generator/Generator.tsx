@@ -5,6 +5,7 @@ import { Button, Text } from "../../ui";
 
 export const Generator = () => {
   const [id, setId] = useState(uuidv4()); // [0 -> value, 1 -> callback]
+  // const [name, setName] = useState('Patryk');
 
   // let id = uuidv4();
 
