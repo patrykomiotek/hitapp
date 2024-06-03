@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import "./App.css";
 import { Button, Text } from "./ui";
+import { Generator } from "./components/Generator";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -9,9 +10,9 @@ function App() {
   return (
     <>
       <div></div>
-      <h1>Vite + React</h1>
+      <Generator />
 
-      <Text>Today is Monday</Text>
+      {/* <Text>Today is Monday</Text>
       <Button label="One" bgColor="carrot" color="clouds" />
       <Button label="Two" bgColor="clouds" color="carrot" />
       <Button label="Three" bgColor="peter-river" color="clouds" />
@@ -23,7 +24,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
-      </div>
+      </div> */}
     </>
   );
 }
