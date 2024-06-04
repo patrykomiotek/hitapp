@@ -1,5 +1,5 @@
 import { ChangeEventHandler, FormEventHandler, useRef, useEffect } from "react";
-import { Button, Text } from "../../ui";
+import { Button, Input, Text } from "../../ui";
 
 // RegistrationFormRefs
 // RegistrationFormHooks
@@ -10,7 +10,7 @@ type FormStateType = {
   language: string;
 };
 
-const RegistrationFormRefs = () => {
+const RegistrationFormForwardRef = () => {
   const emailFieldRef = useRef<HTMLInputElement>(null);
   const passwordFieldRef = useRef<HTMLInputElement>(null);
   const languageFieldRef = useRef<HTMLInputElement>(null);
@@ -55,52 +55,26 @@ const RegistrationFormRefs = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        {/* <Text>
-          Email: {formState.email}, password: {formState.password}
-        </Text> */}
-      </div>
-      {/* <Input ref={emailFieldRef} label="E-mail" type="email" /> */}
-      <div>
-        <label htmlFor="email">E-mail</label>
-        <input
-          ref={emailFieldRef}
-          id="email"
-          type="email"
-          name="email"
-          defaultValue="test@wp.pl"
-          onChange={handleEmailChange}
-          // autoFocus={true}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          ref={passwordFieldRef}
-          id="password"
-          type="password"
-          name="password"
-        />
-      </div>
-      <div>
-        <label htmlFor="language">Language</label>
-        <input
-          ref={languageFieldRef}
-          defaultValue="java"
-          id="language"
-          name="language"
-          onChange={handleLanguageChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="age">Age</label>
-        <input id="age" type="number" />
-      </div>
+      <Input
+        ref={emailFieldRef}
+        label="E-mail"
+        type="email"
+        name="email"
+        defaultValue="test@wp.pl"
+        onChange={handleEmailChange}
+      />
+      <Input
+        ref={passwordFieldRef}
+        label="Password"
+        type="password"
+        name="password"
+      />
+      <Input ref={languageFieldRef} label="Language" name="language" />
+      <Input label="Age" type="number" />
       <Button label="Send" type="submit" />
-      <Button label="Send2" type="button" />
     </form>
   );
 };
 
 // export default RegistrationFormRefs;
-export { RegistrationFormRefs };
+export { RegistrationFormForwardRef };

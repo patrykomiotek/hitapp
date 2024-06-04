@@ -3,7 +3,10 @@ import { useState } from "react";
 import "./App.css";
 import { Button, Text } from "./ui";
 import { Generator } from "./components/Generator";
-import { RegistrationFormState } from "./components/Form";
+import {
+  RegistrationFormState,
+  RegistrationFormForwardRef,
+} from "./components/Form";
 import { RegistrationFormRefs } from "./components/Form/RegistrationFormRefs";
 
 function App() {
@@ -11,8 +14,9 @@ function App() {
 
   return (
     <>
-      <RegistrationFormState />
-      <RegistrationFormRefs />
+      <RegistrationFormForwardRef />
+      {/* <RegistrationFormState /> */}
+      {/* <RegistrationFormRefs /> */}
       {/* <Generator /> */}
 
       {/* <Text>Today is Monday</Text>
