@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FormEventHandler, useRef } from "react";
+import { ChangeEventHandler, FormEventHandler, useRef, useEffect } from "react";
 import { Button, Text } from "../../ui";
 
 // RegistrationFormRefs
@@ -15,6 +15,12 @@ const RegistrationFormRefs = () => {
   const passwordFieldRef = useRef<HTMLInputElement>(null);
   const languageFieldRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    if (emailFieldRef.current) {
+      emailFieldRef.current.focus();
+    }
+  }, []);
+
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
     const emailValue = emailFieldRef.current?.value || "";
@@ -26,6 +32,25 @@ const RegistrationFormRefs = () => {
       password: passwordValue,
       language: languageValue,
     });
+  };
+
+  const handleEmailChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+    // event.target.value
+    const emailValue = event.target.value;
+    if (!emailValue.includes("@") && emailFieldRef.current) {
+      emailFieldRef.current.blur();
+      emailFieldRef.current.style.border = "1px solid #f00";
+    }
+  };
+
+  const handleLanguageChange: ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    const languageValue = event.target.value;
+    if (languageValue.includes("cobol") && languageFieldRef.current) {
+      languageFieldRef.current.value = "*****";
+      languageFieldRef.current.style.border = "1px solid #f00";
+    }
   };
 
   return (
@@ -43,6 +68,8 @@ const RegistrationFormRefs = () => {
           type="email"
           name="email"
           defaultValue="test@wp.pl"
+          onChange={handleEmailChange}
+          // autoFocus={true}
         />
       </div>
       <div>
@@ -61,6 +88,7 @@ const RegistrationFormRefs = () => {
           defaultValue="java"
           id="language"
           name="language"
+          onChange={handleLanguageChange}
         />
       </div>
       <div>
