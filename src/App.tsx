@@ -3,14 +3,15 @@ import { useState } from "react";
 import "./App.css";
 import { Button, Text } from "./ui";
 import { Generator } from "./components/Generator";
+import { RegistrationFormState } from "./components/Form";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <div></div>
-      <Generator />
+      <RegistrationFormState />
+      {/* <Generator /> */}
 
       {/* <Text>Today is Monday</Text>
       <Button label="One" bgColor="carrot" color="clouds" />
