@@ -1,4 +1,4 @@
-import { type MouseEventHandler } from "react";
+import { type MouseEventHandler, type ComponentProps } from "react";
 
 type PaletteKey =
   | "carrot"
@@ -27,21 +27,25 @@ const palette = {
 
 type Color = keyof typeof palette;
 
-type Props = {
+type Props = ComponentProps<"button"> & {
   label: string;
   // bgColor: PaletteKey;
   // color: PaletteKey;
 
   bgColor?: Color;
   color?: Color;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+
+  // onClick?: MouseEventHandler<HTMLButtonElement>;
+  // type?: "button" | "submit" | "reset";
 };
 
 export const Button = ({
   label,
-  onClick,
+  // onClick,
   color = "clouds",
   bgColor = "midnight-blue",
+  // type = "button",
+  ...rest
 }: Props) => {
   const styles = {
     color: palette[color],
@@ -49,7 +53,7 @@ export const Button = ({
   };
 
   return (
-    <button style={styles} onClick={onClick}>
+    <button style={styles} {...rest}>
       {label}
     </button>
   );

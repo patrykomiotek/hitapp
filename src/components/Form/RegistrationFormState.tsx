@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEventHandler, useState } from "react";
 import { Button, Text } from "../../ui";
 
 // RegistrationFormRefs
@@ -9,8 +9,13 @@ export const RegistrationFormState = () => {
   const [password, setPassword] = useState("");
   const [language, setLanguage] = useState("");
 
+  const handleSubmit: FormEventHandler = (event) => {
+    event.preventDefault();
+    console.log({ email, password, language });
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
         <Text>
           Email: {email}, password: {password}
@@ -21,6 +26,7 @@ export const RegistrationFormState = () => {
         <input
           id="email"
           type="email"
+          name="email"
           onChange={(event) => setEmail(event?.target.value)}
         />
       </div>
@@ -29,6 +35,7 @@ export const RegistrationFormState = () => {
         <input
           id="password"
           type="password"
+          name="password"
           onChange={(event) => setPassword(event?.target.value)}
         />
       </div>
@@ -36,10 +43,16 @@ export const RegistrationFormState = () => {
         <label htmlFor="language">Language</label>
         <input
           id="language"
+          name="language"
           onChange={(event) => setLanguage(event?.target.value)}
         />
       </div>
-      <Button label="Send" />
+      <div>
+        <label htmlFor="age">Age</label>
+        <input id="age" type="number" />
+      </div>
+      <Button label="Send" type="submit" />
+      <Button label="Send2" type="button" />
     </form>
   );
 };
