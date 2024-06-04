@@ -27,11 +27,12 @@ const RegistrationFormRefs = () => {
     const passwordValue = passwordFieldRef.current?.value || "";
     const languageValue = languageFieldRef.current?.value || "";
 
-    console.log({
-      email: emailValue,
-      password: passwordValue,
-      language: languageValue,
-    });
+    // Parent
+    // console.log({
+    //   email: emailValue,
+    //   password: passwordValue,
+    //   language: languageValue,
+    // });
   };
 
   const handleEmailChange: ChangeEventHandler<HTMLInputElement> = (event) => {
