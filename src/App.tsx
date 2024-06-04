@@ -9,6 +9,7 @@ import {
 } from "./components/Form";
 import { RegistrationFormRefs } from "./components/Form/RegistrationFormRefs";
 import { RegistrationFormHookForm } from "./components/Form";
+import { FormContainer } from "./components/Form/FormContainer";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -34,12 +35,13 @@ function App() {
 
   return (
     <>
-      <MagicButton
+      <FormContainer />
+      {/* <MagicButton
         ref={buttonRef}
         label="Click me"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-      />
+      /> */}
       {/* <RegistrationFormHookForm /> */}
       {/* <RegistrationFormForwardRef /> */}
       {/* <RegistrationFormState /> */}

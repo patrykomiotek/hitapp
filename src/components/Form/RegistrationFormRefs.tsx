@@ -1,16 +1,22 @@
 import { ChangeEventHandler, FormEventHandler, useRef, useEffect } from "react";
 import { Button, Text } from "../../ui";
+import { type RefFormData } from "./types";
 
 // RegistrationFormRefs
 // RegistrationFormHooks
 
-type FormStateType = {
-  email: string;
-  password: string;
-  language: string;
+// type FormStateType = {
+//   email: string;
+//   password: string;
+//   language: string;
+// };
+
+type Props = {
+  initialData: RefFormData;
+  onSubmit: (data: RefFormData) => void;
 };
 
-const RegistrationFormRefs = () => {
+const RegistrationFormRefs = ({ initialData, onSubmit }: Props) => {
   const emailFieldRef = useRef<HTMLInputElement>(null);
   const passwordFieldRef = useRef<HTMLInputElement>(null);
   const languageFieldRef = useRef<HTMLInputElement>(null);
@@ -26,6 +32,12 @@ const RegistrationFormRefs = () => {
     const emailValue = emailFieldRef.current?.value || "";
     const passwordValue = passwordFieldRef.current?.value || "";
     const languageValue = languageFieldRef.current?.value || "";
+
+    onSubmit({
+      email: emailValue,
+      password: passwordValue,
+      language: languageValue,
+    });
 
     // Parent
     // console.log({
@@ -69,7 +81,7 @@ const RegistrationFormRefs = () => {
           id="email"
           type="email"
           name="email"
-          defaultValue="test@wp.pl"
+          defaultValue={initialData.email}
           onChange={handleEmailChange}
           // autoFocus={true}
         />
@@ -81,15 +93,16 @@ const RegistrationFormRefs = () => {
           id="password"
           type="password"
           name="password"
+          defaultValue={initialData.password}
         />
       </div>
       <div>
         <label htmlFor="language">Language</label>
         <input
           ref={languageFieldRef}
-          defaultValue="java"
           id="language"
           name="language"
+          defaultValue={initialData.language}
           onChange={handleLanguageChange}
         />
       </div>
