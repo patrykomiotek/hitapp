@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { MouseEventHandler, useEffect, useRef, useState } from "react";
 
 import "./App.css";
-import { Button, Text } from "./ui";
+import { Button, MagicButton, Text } from "./ui";
 import { Generator } from "./components/Generator";
 import {
   RegistrationFormState,
@@ -11,11 +11,36 @@ import { RegistrationFormRefs } from "./components/Form/RegistrationFormRefs";
 import { RegistrationFormHookForm } from "./components/Form";
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (buttonRef.current) {
+      buttonRef.current.style.backgroundColor = "#f00";
+      buttonRef.current.style.color = "#fff";
+    }
+  }, []);
+
+  const handleMouseEnter: MouseEventHandler<HTMLButtonElement> = () => {
+    if (buttonRef.current) {
+      buttonRef.current.style.backgroundColor = "#0f0";
+    }
+  };
+  const handleMouseLeave: MouseEventHandler<HTMLButtonElement> = () => {
+    if (buttonRef.current) {
+      buttonRef.current.style.backgroundColor = "#00f";
+    }
+  };
 
   return (
     <>
-      <RegistrationFormHookForm />
+      <MagicButton
+        ref={buttonRef}
+        label="Click me"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      />
+      {/* <RegistrationFormHookForm /> */}
       {/* <RegistrationFormForwardRef /> */}
       {/* <RegistrationFormState /> */}
       {/* <RegistrationFormRefs /> */}
