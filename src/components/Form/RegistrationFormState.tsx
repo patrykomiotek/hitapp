@@ -12,9 +12,9 @@ type FormStateType = {
 
 export const RegistrationFormState = () => {
   const [formState, setFormState] = useState<FormStateType>({
-    email: "",
-    password: "",
-    language: "",
+    email: "test@wp.pl",
+    password: "test1",
+    language: "java",
   });
 
   // const [email, setEmail] = useState("");
@@ -45,7 +45,13 @@ export const RegistrationFormState = () => {
       </div>
       <div>
         <label htmlFor="email">E-mail</label>
-        <input id="email" type="email" name="email" onChange={handleChange} />
+        <input
+          id="email"
+          type="email"
+          name="email"
+          value={formState.email}
+          onChange={handleChange}
+        />
       </div>
       <div>
         <label htmlFor="password">Password</label>
@@ -53,12 +59,18 @@ export const RegistrationFormState = () => {
           id="password"
           type="password"
           name="password"
+          value={formState.password}
           onChange={handleChange}
         />
       </div>
       <div>
         <label htmlFor="language">Language</label>
-        <input id="language" name="language" onChange={handleChange} />
+        <input
+          id="language"
+          name="language"
+          value={formState.language}
+          onChange={handleChange}
+        />
       </div>
       <div>
         <label htmlFor="age">Age</label>

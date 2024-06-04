@@ -37,7 +37,13 @@ const RegistrationFormRefs = () => {
       </div>
       <div>
         <label htmlFor="email">E-mail</label>
-        <input ref={emailFieldRef} id="email" type="email" name="email" />
+        <input
+          ref={emailFieldRef}
+          id="email"
+          type="email"
+          name="email"
+          defaultValue="test@wp.pl"
+        />
       </div>
       <div>
         <label htmlFor="password">Password</label>
@@ -50,7 +56,12 @@ const RegistrationFormRefs = () => {
       </div>
       <div>
         <label htmlFor="language">Language</label>
-        <input ref={languageFieldRef} id="language" name="language" />
+        <input
+          ref={languageFieldRef}
+          defaultValue="java"
+          id="language"
+          name="language"
+        />
       </div>
       <div>
         <label htmlFor="age">Age</label>
@@ -62,4 +73,5 @@ const RegistrationFormRefs = () => {
   );
 };
 
-export default RegistrationFormRefs;
+// export default RegistrationFormRefs;
+export { RegistrationFormRefs };
