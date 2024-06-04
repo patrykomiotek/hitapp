@@ -4,13 +4,15 @@ import "./App.css";
 import { Button, Text } from "./ui";
 import { Generator } from "./components/Generator";
 import { RegistrationFormState } from "./components/Form";
+import RegistrationFormRefs from "./components/Form/RegistrationFormRefs";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <RegistrationFormState />
+      {/* <RegistrationFormState /> */}
+      <RegistrationFormRefs />
       {/* <Generator /> */}
 
       {/* <Text>Today is Monday</Text>
