@@ -8,13 +8,15 @@ import {
   RegistrationFormForwardRef,
 } from "./components/Form";
 import { RegistrationFormRefs } from "./components/Form/RegistrationFormRefs";
+import { RegistrationFormHookForm } from "./components/Form";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <RegistrationFormForwardRef />
+      <RegistrationFormHookForm />
+      {/* <RegistrationFormForwardRef /> */}
       {/* <RegistrationFormState /> */}
       {/* <RegistrationFormRefs /> */}
       {/* <Generator /> */}
