@@ -13,10 +13,12 @@ import { FormContainer } from "./components/Form/FormContainer";
 import { ViewPort } from "./components/ViewPort";
 import { Counter } from "./components/Counter";
 import { AuthInfo } from "./components/Auth/AuthInfo";
-import { AuthContext } from "./components/Auth/AuthContext";
+import {
+  AuthContext,
+  AuthContextProvider,
+} from "./components/Auth/AuthContext";
 
 function App() {
-  const [isUserLogged, setIsUserLogged] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   // useEffect(() => {
@@ -53,14 +55,13 @@ function App() {
 
   return (
     <>
-      <Button
-        label="Change state"
-        onClick={() => setIsUserLogged((value) => !value)}
-      />
-      <AuthContext.Provider value={{ isLoggedIn: isUserLogged }}>
+      <AuthContextProvider>
         <Text>Hello from text</Text>
         <AuthInfo />
-      </AuthContext.Provider>
+      </AuthContextProvider>
+
+      {/* <AuthInfo /> */}
+
       {/* <Counter /> */}
       {/* <ViewPort /> */}
       {/* <FormContainer /> */}
