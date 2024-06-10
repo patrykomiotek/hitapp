@@ -11,6 +11,7 @@ import { RegistrationFormRefs } from "./components/Form/RegistrationFormRefs";
 import { RegistrationFormHookForm } from "./components/Form";
 import { FormContainer } from "./components/Form/FormContainer";
 import { ViewPort } from "./components/ViewPort";
+import { Counter } from "./components/Counter";
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -36,7 +37,8 @@ function App() {
 
   return (
     <>
-      <ViewPort />
+      <Counter />
+      {/* <ViewPort /> */}
       {/* <FormContainer /> */}
       {/* <MagicButton
         ref={buttonRef}
