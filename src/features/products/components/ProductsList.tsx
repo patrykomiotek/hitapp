@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { fetchProducts } from "../services/products";
+import { ProductDto } from "../types";
 
 const products = [
   {
@@ -27,44 +29,11 @@ const products = [
   },
 ];
 
-// Vite
-const API_URL = import.meta.env.VITE_API_URL;
-const AIRTABLE_TOKEN = import.meta.env.VITE_AIRTABLE_TOKEN;
-
-// Webpack
-// create-react-app, prefix REACT_APP_
-// custom: plugin
-
-type ProductDto = {
-  id: number;
-  fields: {
-    name: string;
-    description: string;
-    price: number;
-  };
-};
-
 export const ProductsList = () => {
   const [data, setData] = useState<ProductDto[]>([]);
 
   useEffect(() => {
-    fetch(`${API_URL}/products`, {
-      headers: {
-        Authorization: `Bearer ${AIRTABLE_TOKEN}`,
-        "content-type": "application/json",
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Response error");
-      })
-      .then((data) => {
-        // console.log({ data });
-        // setData
-        setData(data.records);
-      });
+    fetchProducts().then((data) => setData(data.records));
   }, []);
 
   return (
