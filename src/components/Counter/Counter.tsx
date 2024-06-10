@@ -5,7 +5,8 @@ export const Counter = () => {
 
   useEffect(() => {
     const id = setInterval(() => {
-      setCount((prevValue) => prevValue + 1);
+      // setCount(count + 1); //  5 // typeof arg === 'number || typeof arg === 'string'
+      setCount((prevValue) => prevValue + 1); // calculations and bigger state objects,  1+1, 2+1, 3+1 // typeof arg 'function' ||
     }, 1000);
 
     return () => {
