@@ -19,6 +19,7 @@ import {
 } from "./components/Auth/AuthContext";
 import { ThemeProvider } from "./components/Theme/ThemeContext";
 import { ThemeSwitcher } from "./components/Theme/ThemeSwitcher";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 
 function App() {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -64,7 +65,10 @@ function App() {
           <AuthInfo />
         </AuthContextProvider>
       </ThemeProvider>
-      {/* <AuthInfo /> */}
+
+      <ErrorBoundary fallback={<p>Auth info error, try again</p>}>
+        <AuthInfo />
+      </ErrorBoundary>
 
       {/* <Counter /> */}
       {/* <ViewPort /> */}
