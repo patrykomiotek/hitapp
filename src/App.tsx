@@ -17,6 +17,20 @@ function App() {
   // const [count, setCount] = useState(0);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
+  // useEffect(() => {
+  //   // log on console
+
+  //   if (count !== sth) {
+  //     // logic 1
+  //   } else if (value1) {
+  //     // logic 2
+  //   }
+
+  // }, [count, value1, value2, setCount]);
+
+  // useEffect(() => {}, [count]);
+  // useEffect(() => {}, [value1, vlaue2]);
+
   useEffect(() => {
     if (buttonRef.current) {
       buttonRef.current.style.backgroundColor = "#f00";
@@ -37,7 +51,7 @@ function App() {
 
   return (
     <>
-      <Counter />
+      {/* <Counter /> */}
       {/* <ViewPort /> */}
       {/* <FormContainer /> */}
       {/* <MagicButton
