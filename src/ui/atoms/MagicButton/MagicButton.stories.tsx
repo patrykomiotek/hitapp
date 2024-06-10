@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 
 import { MagicButton } from "./MagicButton";
 import { MouseEventHandler, useEffect, useRef } from "react";
 
 const meta = {
-  title: "UI/MagicButton",
+  title: "UI/Atoms/MagicButton",
   // tags: ["autodocs"],
   component: MagicButton,
 } satisfies Meta<typeof MagicButton>;

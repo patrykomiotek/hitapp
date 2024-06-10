@@ -1,5 +1,5 @@
 // import { Text } from './ui';
-export * from "./Text";
-export * from "./Button";
-export * from "./Input";
-export * from "./MagicButton";
+export * from "./atoms/Text";
+export * from "./atoms/Button";
+export * from "./molecules/Input";
+export * from "./atoms/MagicButton";

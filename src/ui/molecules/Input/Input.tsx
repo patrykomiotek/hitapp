@@ -2,9 +2,10 @@ import {
   ComponentPropsWithRef,
   useId,
   forwardRef,
-  type ForwardedRef,
+  // type ForwardedRef,
 } from "react";
 import { FieldError } from "react-hook-form";
+import { Label } from "../../atoms/Label";
 
 type Props = ComponentPropsWithRef<"input"> & {
   label: string;
@@ -21,7 +22,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
 
     return (
       <div>
-        <label htmlFor={id}>{label}</label>
+        <Label id={id}>{label}</Label>
         <input ref={ref} id={id} {...rest} />
         {error && <p style={{ color: "red" }}>{error.message}</p>}
       </div>
