@@ -20,6 +20,7 @@ import {
 import { ThemeProvider } from "./components/Theme/ThemeContext";
 import { ThemeSwitcher } from "./components/Theme/ThemeSwitcher";
 import { ErrorBoundary } from "./components/ErrorBoundary";
+import { ProductsList } from "./features/products/components/ProductsList";
 
 function App() {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -59,16 +60,18 @@ function App() {
   return (
     <>
       <ThemeProvider>
-        <ThemeSwitcher />
+        {/* <ThemeSwitcher /> */}
         <AuthContextProvider>
-          <Text>Hello from text</Text>
-          <AuthInfo />
+          <ProductsList />
+
+          {/* <Text>Hello from text</Text>
+          <AuthInfo /> */}
         </AuthContextProvider>
       </ThemeProvider>
 
-      <ErrorBoundary fallback={<p>Auth info error, try again</p>}>
+      {/* <ErrorBoundary fallback={<p>Auth info error, try again</p>}>
         <AuthInfo />
-      </ErrorBoundary>
+      </ErrorBoundary> */}
 
       {/* <Counter /> */}
       {/* <ViewPort /> */}
