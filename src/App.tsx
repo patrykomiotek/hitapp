@@ -21,6 +21,7 @@ import { ThemeProvider } from "./components/Theme/ThemeContext";
 import { ThemeSwitcher } from "./components/Theme/ThemeSwitcher";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { ProductsList } from "./features/products/components/ProductsList";
+import { ProductsDetails } from "./features/products/components/ProductsDetails";
 
 function App() {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -62,6 +63,7 @@ function App() {
       <ThemeProvider>
         {/* <ThemeSwitcher /> */}
         <AuthContextProvider>
+          <ProductsDetails id="recVhBqT4hXbvSogN" />
           <ProductsList />
 
           {/* <Text>Hello from text</Text>

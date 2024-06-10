@@ -8,12 +8,25 @@ const AIRTABLE_TOKEN = import.meta.env.VITE_AIRTABLE_TOKEN;
 // create-react-app, prefix REACT_APP_
 // custom: plugin
 
+const headers = {
+  Authorization: `Bearer ${AIRTABLE_TOKEN}`,
+  "content-type": "application/json",
+};
+
 export const fetchProducts = (): Promise<AirtableResponse<ProductDto[]>> => {
   return fetch(`${API_URL}/products`, {
-    headers: {
-      Authorization: `Bearer ${AIRTABLE_TOKEN}`,
-      "content-type": "application/json",
-    },
+    headers,
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error("Response error");
+  });
+};
+
+export const fetchProduct = (id: ProductDto["id"]): Promise<ProductDto> => {
+  return fetch(`${API_URL}/products/${id}`, {
+    headers,
   }).then((response) => {
     if (response.ok) {
       return response.json();
