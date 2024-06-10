@@ -17,6 +17,8 @@ import {
   AuthContext,
   AuthContextProvider,
 } from "./components/Auth/AuthContext";
+import { ThemeProvider } from "./components/Theme/ThemeContext";
+import { ThemeSwitcher } from "./components/Theme/ThemeSwitcher";
 
 function App() {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -55,11 +57,13 @@ function App() {
 
   return (
     <>
-      <AuthContextProvider>
-        <Text>Hello from text</Text>
-        <AuthInfo />
-      </AuthContextProvider>
-
+      <ThemeProvider>
+        <ThemeSwitcher />
+        <AuthContextProvider>
+          <Text>Hello from text</Text>
+          <AuthInfo />
+        </AuthContextProvider>
+      </ThemeProvider>
       {/* <AuthInfo /> */}
 
       {/* <Counter /> */}
