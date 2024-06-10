@@ -31,14 +31,33 @@ const products = [
 
 export const ProductsList = () => {
   const [data, setData] = useState<ProductDto[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    fetchProducts().then((data) => setData(data.records));
+    // fetchProducts().then((data) => setData(data.records)).catch(error => console.error(error));
+
+    const loadData = async () => {
+      try {
+        const responseData = await fetchProducts();
+        setData(responseData.records);
+      } catch (error) {
+        console.error(error);
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
   }, []);
 
   return (
     <div>
       <h2>Products</h2>
+
+      {isLoading && <p>Loading...</p>}
+      {isError && <p>Oh no, an error!</p>}
 
       {data.map((elem) => (
         <div key={elem.id}>
