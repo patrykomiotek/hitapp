@@ -28,20 +28,17 @@ const reducer = (state: State, action: Action) => {
   }
 };
 
+const increase = () => ({ type: ActionType.INCREMENT });
+const decrease = () => ({ type: ActionType.DECREMENT });
+
 export const Stepper = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <div>
-      <Button
-        label="Decrease"
-        onClick={() => dispatch({ type: ActionType.DECREMENT })}
-      />
+      <Button label="Decrease" onClick={() => dispatch(decrease())} />
       <span>{state.count}</span>
-      <Button
-        label="Increase"
-        onClick={() => dispatch({ type: ActionType.INCREMENT })}
-      />
+      <Button label="Increase" onClick={() => dispatch(increase())} />
     </div>
   );
 };
