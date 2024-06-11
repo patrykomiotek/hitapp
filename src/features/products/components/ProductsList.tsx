@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../services/products";
-import { ProductDto } from "../types";
+import { AirtableResponse, ProductDto } from "../types";
+import { useApi } from "../../../hooks/useApi";
 
 const products = [
   {
@@ -30,27 +31,30 @@ const products = [
 ];
 
 export const ProductsList = () => {
-  const [data, setData] = useState<ProductDto[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  const { data, isError, isLoading } =
+    useApi<AirtableResponse<ProductDto[]>>(fetchProducts);
 
-  useEffect(() => {
-    // fetchProducts().then((data) => setData(data.records)).catch(error => console.error(error));
+  // const [data, setData] = useState<ProductDto[]>([]);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [isError, setIsError] = useState(false);
 
-    const loadData = async () => {
-      try {
-        const responseData = await fetchProducts();
-        setData(responseData.records);
-      } catch (error) {
-        console.error(error);
-        setIsError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   // fetchProducts().then((data) => setData(data.records)).catch(error => console.error(error));
 
-    loadData();
-  }, []);
+  //   const loadData = async () => {
+  //     try {
+  //       const responseData = await fetchProducts();
+  //       setData(responseData.records);
+  //     } catch (error) {
+  //       console.error(error);
+  //       setIsError(true);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+
+  //   loadData();
+  // }, []);
 
   return (
     <div>
@@ -59,15 +63,16 @@ export const ProductsList = () => {
       {isLoading && <p>Loading...</p>}
       {isError && <p>Oh no, an error!</p>}
 
-      {data.map((elem) => (
-        <div key={elem.id}>
-          <h4>{elem.fields.name}</h4>
-          <p>
-            {elem.fields.description}, ${elem.fields.price}
-          </p>
-          <br />
-        </div>
-      ))}
+      {data &&
+        data.records.map((elem) => (
+          <div key={elem.id}>
+            <h4>{elem.fields.name}</h4>
+            <p>
+              {elem.fields.description}, ${elem.fields.price}
+            </p>
+            <br />
+          </div>
+        ))}
     </div>
   );
 };

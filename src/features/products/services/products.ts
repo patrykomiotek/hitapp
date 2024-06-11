@@ -18,6 +18,10 @@ export const fetchProducts = (): Promise<AirtableResponse<ProductDto[]>> => {
     headers,
   }).then((response) => {
     if (response.ok) {
+      // TODO: parse using zod
+      // 1. create validation schema (productsSchema)
+      // 2. parse / safeParse / parseAsync / safeParseAsync (productsSchema.parseAsync(response.json))
+      // 3. depending on the result -> response or an error
       return response.json();
     }
     throw new Error("Response error");
