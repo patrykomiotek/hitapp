@@ -38,3 +38,18 @@ export const fetchProduct = (id: ProductDto["id"]): Promise<ProductDto> => {
     throw new Error("Response error");
   });
 };
+
+export const createProduct = (
+  product: ProductDto["fields"]
+): Promise<ProductDto> => {
+  return fetch(`${API_URL}/products`, {
+    headers,
+    method: "POST",
+    body: JSON.stringify({ records: [{ fields: product }] }),
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error("Response error");
+  });
+};

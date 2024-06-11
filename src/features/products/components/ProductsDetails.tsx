@@ -3,6 +3,8 @@ import { ProductDto } from "../types";
 import { useApi } from "../../../hooks/useApi";
 import { useShopContext } from "../../basket/components/ShopContext";
 import { Button } from "../../../ui";
+import { Route } from "../../../routes";
+import { Link } from "react-router-dom";
 
 type Props = {
   id: ProductDto["id"];

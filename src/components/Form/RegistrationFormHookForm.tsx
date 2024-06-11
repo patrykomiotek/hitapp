@@ -87,7 +87,7 @@ const RegistrationFormHookForm = () => {
         label="Language"
       />
       <Input
-        {...register("age", { valueAsNumber: true })}
+        {...register("age", { Number: true })}
         error={errors.age}
         label="Age"
         type="number"

@@ -4,6 +4,7 @@ import { Layout } from "./components/Layout/Layout";
 import { HomePage } from "./pages/HomePage";
 import { ProductsListPage } from "./pages/ProductsListPage";
 import { ProductDetailsPage } from "./pages/ProductDetailsPage";
+import { CreateProductPage } from "./pages/CreateProductPage";
 
 type RouteType = Record<
   string,
@@ -34,6 +35,10 @@ export const Route: RouteType = {
     title: "Products details",
     dynamicPath: (id: ProductDto["id"]) => `/products/${id}`,
   },
+  CREATE_PRODUCT: {
+    path: "/products/create",
+    title: "Create product",
+  },
 };
 
 // type RouteType = typeof Route;
@@ -55,6 +60,10 @@ export const router = createBrowserRouter([
       {
         path: Route.PRODUCTS_DETAILS.path,
         element: <ProductDetailsPage />,
+      },
+      {
+        path: Route.CREATE_PRODUCT.path,
+        element: <CreateProductPage />,
       },
     ],
   },

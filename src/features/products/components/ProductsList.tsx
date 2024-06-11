@@ -64,6 +64,7 @@ export const ProductsList = () => {
   return (
     <div>
       <h2>Products</h2>
+      <Link to={Route.CREATE_PRODUCT.path}>Create product</Link>
 
       {isLoading && <p>Loading...</p>}
       {isError && <p>Oh no, an error!</p>}
