@@ -4,6 +4,8 @@ import { AirtableResponse, ProductDto } from "../types";
 import { useApi } from "../../../hooks/useApi";
 import { Button } from "../../../ui";
 import { useShopContext } from "../../basket/components/ShopContext";
+import { Link } from "react-router-dom";
+import { Route } from "../../../routes";
 
 const products = [
   {
@@ -69,7 +71,11 @@ export const ProductsList = () => {
       {data &&
         data.records.map((elem) => (
           <div key={elem.id}>
-            <h4>{elem.fields.name}</h4>
+            <h4>
+              <Link to={Route.PRODUCTS_DETAILS.dynamicPath(elem.id)}>
+                {elem.fields.name}
+              </Link>
+            </h4>
             <p>
               {elem.fields.description}, ${elem.fields.price}
             </p>

@@ -1,4 +1,3 @@
-import { Button } from "../../../ui";
 import { useShopContext } from "./ShopContext";
 
 export const ShoppingCart = () => {

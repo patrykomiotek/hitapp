@@ -24,6 +24,8 @@ import { ProductsList } from "./features/products/components/ProductsList";
 import { ProductsDetails } from "./features/products/components/ProductsDetails";
 import { ShopContextProvider } from "./features/basket/components/ShopContext";
 import { ShoppingCart } from "./features/basket/components/ShoppingCart";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 
 function App() {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -67,8 +69,9 @@ function App() {
         <AuthContextProvider>
           <ShopContextProvider>
             <ShoppingCart />
-            <ProductsDetails id="recVhBqT4hXbvSogN" />
-            <ProductsList />
+            <RouterProvider router={router} />
+            {/* <ProductsDetails id="recVhBqT4hXbvSogN" /> */}
+            {/* <ProductsList /> */}
 
             {/* <Text>Hello from text</Text>
           <AuthInfo /> */}
