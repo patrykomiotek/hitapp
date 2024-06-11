@@ -26,6 +26,7 @@ import { ShopContextProvider } from "./features/basket/components/ShopContext";
 import { ShoppingCart } from "./features/basket/components/ShoppingCart";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes";
+import { Stepper } from "./components/Stepper";
 
 function App() {
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -69,6 +70,7 @@ function App() {
         <AuthContextProvider>
           <ShopContextProvider>
             <ShoppingCart />
+            <Stepper />
             <RouterProvider router={router} />
             {/* <ProductsDetails id="recVhBqT4hXbvSogN" /> */}
             {/* <ProductsList /> */}
