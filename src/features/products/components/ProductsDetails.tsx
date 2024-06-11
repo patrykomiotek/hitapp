@@ -1,6 +1,8 @@
 import { fetchProduct } from "../services/products";
 import { ProductDto } from "../types";
 import { useApi } from "../../../hooks/useApi";
+import { useShopContext } from "../../basket/components/ShopContext";
+import { Button } from "../../../ui";
 
 type Props = {
   id: ProductDto["id"];
@@ -10,6 +12,7 @@ export const ProductsDetails = ({ id }: Props) => {
   const { data, isError, isLoading } = useApi<ProductDto | null>(() =>
     fetchProduct(id)
   );
+  const context = useShopContext();
   // const {} = useApi<AirtableResponse<ProductDto[]>>(fetchProducts);
 
   // const [data, setData] = useState<ProductDto | null>(null);
@@ -32,29 +35,31 @@ export const ProductsDetails = ({ id }: Props) => {
   //   loadData();
   // }, []);
 
-  const renderProduct = () => {
-    if (data) {
-      return (
-        <div>
-          <h4>{data.fields.name}</h4>
-          <p>
-            {data.fields.description}, ${data.fields.price}
-          </p>
-          <br />
-        </div>
-      );
-    }
-    return <p>Not found</p>;
+  const renderProduct = (elem: ProductDto) => {
+    return (
+      <div>
+        <h1>{elem.fields.name}</h1>
+        <p>
+          {elem.fields.description}, ${elem.fields.price}
+        </p>
+        <Button
+          label="Add to basket"
+          onClick={() => context.addToBasket(elem)}
+        />
+        <Button
+          label="Remove from the basket"
+          onClick={() => context.removeFromBasket(elem.id)}
+        />
+      </div>
+    );
   };
 
   return (
     <div>
-      <h2>One Product</h2>
-
       {isLoading && <p>Loading...</p>}
       {isError && <p>Oh no, an error!</p>}
 
-      {renderProduct()}
+      {data && renderProduct(data)}
     </div>
   );
 };

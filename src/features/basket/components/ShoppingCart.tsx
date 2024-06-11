@@ -6,8 +6,8 @@ export const ShoppingCart = () => {
   return (
     <div>
       <p>Items: {context.amount} </p>
-      {context.products.map((elem) => (
-        <div key={elem.id}>
+      {context.products.map((elem, index) => (
+        <div key={`${elem.id}-${index}`}>
           <p>
             {elem.fields.name}, ${elem.fields.price}
           </p>

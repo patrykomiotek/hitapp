@@ -72,9 +72,7 @@ export const ProductsList = () => {
         data.records.map((elem) => (
           <div key={elem.id}>
             <h4>
-              <Link to={Route.PRODUCTS_DETAILS.dynamicPath(elem.id)}>
-                {elem.fields.name}
-              </Link>
+              <Link to={`/products/${elem.id}`}>{elem.fields.name}</Link>
             </h4>
             <p>
               {elem.fields.description}, ${elem.fields.price}
