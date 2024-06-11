@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { fetchProducts } from "../services/products";
 import { AirtableResponse, ProductDto } from "../types";
 import { useApi } from "../../../hooks/useApi";
+import { Button } from "../../../ui";
+import { useShopContext } from "../../basket/components/ShopContext";
 
 const products = [
   {
@@ -33,6 +35,7 @@ const products = [
 export const ProductsList = () => {
   const { data, isError, isLoading } =
     useApi<AirtableResponse<ProductDto[]>>(fetchProducts);
+  const context = useShopContext();
 
   // const [data, setData] = useState<ProductDto[]>([]);
   // const [isLoading, setIsLoading] = useState(true);
@@ -71,6 +74,14 @@ export const ProductsList = () => {
               {elem.fields.description}, ${elem.fields.price}
             </p>
             <br />
+            <Button
+              label="Add to basket"
+              onClick={() => context.addToBasket(elem)}
+            />
+            <Button
+              label="Remove from the basket"
+              onClick={() => context.removeFromBasket(elem.id)}
+            />
           </div>
         ))}
     </div>
