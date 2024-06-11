@@ -19,7 +19,7 @@ type Action = {
 
 const initialState: State = { count: 0 };
 
-const reducer = (state: State, action: Action) => {
+export const reducer = (state: State, action: Action) => {
   switch (action.type) {
     case ActionType.DECREMENT:
       return { count: state.count - 1 };
