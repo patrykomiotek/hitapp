@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { fetchProduct } from "../services/products";
 import { ProductDto } from "../types";
 import { useApi } from "../../../hooks/useApi";
