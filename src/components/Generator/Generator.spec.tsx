@@ -14,6 +14,9 @@ describe("Generator component", () => {
     // const nextId = screen.getByRole("paragraph").textContent;
     const nextId = screen.getByText(/[a-z0-9-]{36}/i).textContent;
 
+    const paragraphs = screen.getAllByRole("paragraph");
+
     expect(nextId).not.toBe(id);
+    expect(paragraphs.length).toEqual(2);
   });
 });

@@ -1,4 +1,4 @@
-import { Button } from "../../ui";
+import { Button, Text } from "../../ui";
 import { useAuthContext } from "./AuthContext";
 
 // import { AuthContext } from "./AuthContext";
@@ -9,7 +9,7 @@ export const AuthCredentials = () => {
   return (
     <div>
       <Button label="Toggle" onClick={context.toggle} />
-      <p>Is user logged: {context.isUserLogged ? "yes" : "no"}</p>
+      <Text>Is user logged: {context.isUserLogged ? "yes" : "no"}</Text>
     </div>
   );
 };
