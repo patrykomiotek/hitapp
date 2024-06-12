@@ -5,7 +5,7 @@ type State = {
   count: number;
 };
 
-enum ActionType {
+export enum ActionType {
   INCREMENT = "increment",
   DECREMENT = "decrement",
   SET_VALUE = "set-value",

@@ -11,8 +11,10 @@ describe("Button component", () => {
     // provide callback and check number of calls of this callback
   });
   it("it should not have violations", async () => {
-    const { container } = render(<Button label="Click me" />);
+    const { container, debug } = render(<Button label="Click me" />);
     const result = await axe(container);
+    // console.log(container);
+    // debug();
     expect(result).toHaveNoViolations();
   });
 });
