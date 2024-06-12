@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { Stepper } from "./Stepper";
 
 describe("Stepper component", () => {
@@ -9,5 +9,15 @@ describe("Stepper component", () => {
     // expect()
     // console.log(element);
     expect(element).toBeInTheDocument(); // FIXME: ts
+  });
+
+  it("should decrease value", () => {
+    render(<Stepper />);
+
+    const element = screen.getByRole("button", { name: /decrease/i });
+    fireEvent.click(element);
+    fireEvent.click(element);
+
+    expect(screen.getByText("-2")).toBeInTheDocument(); // FIXME: ts
   });
 });
