@@ -1,7 +1,7 @@
 // kudos Tomasz Ducin! ;)
-import { renderAction } from "@stories/utils";
 import { memo, useCallback, useMemo, useState } from "react";
 import { Checkbox } from "./Checkbox";
+import { renderAction } from "../stories/utils";
 
 export default {
   title: "Performance/WithHooks",

@@ -1,6 +1,6 @@
 // kudos Tomasz Ducin! ;)
 import { memo, useState } from "react";
-import { renderAction } from "@stories/utils";
+import { renderAction } from "../stories/utils";
 import { Checkbox } from "./Checkbox";
 
 export default {
