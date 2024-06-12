@@ -27,7 +27,8 @@ export const useAuthContext = () => {
   return context;
 };
 
-const useAuth = () => {
+// write a test for our useAuth
+export const useAuth = () => {
   const [isUserLogged, setIsUserLogged] = useState(false);
 
   const logIn = () => setIsUserLogged(true);

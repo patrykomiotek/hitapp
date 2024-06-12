@@ -25,7 +25,7 @@ describe("ViewPort component", () => {
     // mock.mockImplementationOnce(() => ({ x: 100, y: 200 }));
 
     const { debug } = render(<ViewPort />);
-    debug();
+    // debug();
     expect(screen.getByText(/x: 100, y: 200/i)).toBeInTheDocument();
   });
   it("should display different values", () => {
@@ -35,7 +35,7 @@ describe("ViewPort component", () => {
     // mock.mockImplementationOnce(() => ({ x: 300, y: 200 }));
     const { debug } = render(<ViewPort />);
     expect(mockedUseViewPort).toHaveBeenCalledTimes(2);
-    debug();
+    // debug();
     expect(screen.getByText(/x: 300, y: 200/i)).toBeInTheDocument();
   });
 });

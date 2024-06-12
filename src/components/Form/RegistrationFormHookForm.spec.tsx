@@ -42,6 +42,6 @@ describe("RegistrationFormHookForm validation checks", () => {
     fireEvent.click(screen.getByRole("button"));
 
     expect(await screen.findByText(/invalid email/i)).toBeInTheDocument();
-    debug();
+    // debug();
   });
 });
