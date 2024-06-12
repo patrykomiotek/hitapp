@@ -58,6 +58,7 @@ const RegistrationFormHookForm = () => {
     formState: { errors },
   } = useForm<FormStateType>({
     resolver: zodResolver(validationSchema),
+    // reValidateMode: "onSubmit",
   });
 
   const sendForm: SubmitHandler<FormStateType> = (data) => {
