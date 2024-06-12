@@ -72,7 +72,7 @@ const RegistrationFormHookForm = () => {
         {...register("email")}
         label="E-mail"
         type="email"
-        defaultValue="test@wp.pl"
+        // defaultValue="test@wp.pl"
         error={errors.email}
       />
       <Input
