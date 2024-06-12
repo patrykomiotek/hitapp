@@ -8,7 +8,7 @@ describe("Stepper component", () => {
     const element = screen.getByText("0");
     // expect()
     // console.log(element);
-    expect(element).toBeInTheDocument(); // FIXME: ts
+    expect(element).toBeInTheDocument();
   });
 
   it("should decrease value", () => {
@@ -18,6 +18,6 @@ describe("Stepper component", () => {
     fireEvent.click(element);
     fireEvent.click(element);
 
-    expect(screen.getByText("-2")).toBeInTheDocument(); // FIXME: ts
+    expect(screen.getByText("-2")).toBeInTheDocument();
   });
 });
