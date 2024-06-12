@@ -10,7 +10,6 @@ describe("useAuth hook", () => {
     act(() => {
       result.current.toggle();
     });
-
     expect(result.current.isUserLogged).toBeTruthy();
   });
 });

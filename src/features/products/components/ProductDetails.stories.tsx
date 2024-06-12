@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
 import { ProductsDetails } from "./ProductsDetails";
+import { ShopContextProvider } from "../../basket/components/ShopContext";
+import { MemoryRouter } from "react-router-dom";
 
 const meta = {
   title: "Features/Products/ProductsDetails",
@@ -12,10 +14,12 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+// type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    id: "recVhBqT4hXbvSogN",
-  },
-};
+export const _ProductDetails = () => (
+  <MemoryRouter>
+    <ShopContextProvider>
+      <ProductsDetails id="recVhBqT4hXbvSogN" />
+    </ShopContextProvider>
+  </MemoryRouter>
+);

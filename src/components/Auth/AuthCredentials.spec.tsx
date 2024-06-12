@@ -9,7 +9,7 @@ describe("AuthCredentials component", () => {
         <AuthCredentials />
       </AuthContextProvider>
     );
-    debug();
+    // debug();
     expect(screen.getByText(/is user logged: no/i)).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button"));
     expect(screen.getByText(/is user logged: yes/i)).toBeInTheDocument();
